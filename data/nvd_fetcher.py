@@ -2,11 +2,13 @@ import requests
 import json
 from datetime import datetime, timedelta
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Ensure data/ folder exists
 os.makedirs("data", exist_ok=True)
+API_KEY = os.getenv("NVD_API_KEY")
 
-API_KEY = '4ba1d926-5d63-4340-b478-dfab28a8e761'
 NVD_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 
 def fetch_recent_cves(days_back=7):
